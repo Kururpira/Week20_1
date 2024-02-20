@@ -41,8 +41,15 @@ document.querySelector('.b-2').addEventListener('click', makeTwo);
 
 function makeThree() {
 	const resultThree = document.getElementById('result3');
-	try {
-		//Ваш код
+	
+		let json = '{ "age": 30 }';
+
+        try {
+        let user = JSON.parse(json); 
+        if (!user.name) {
+        throw new Error("Данные неполны: нет имени"); 
+        }
+
 	} catch (error) {
 		resultThree.textContent = 'Ошибка была перехвачена: ' + error.message;
 		console.error('Ошибка была перехвачена:', error.message);
