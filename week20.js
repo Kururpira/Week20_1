@@ -90,7 +90,7 @@ function makeFive() {
 		return inputData == 0 ? 1 : inputData * (inputData - 1);
 	}catch (error) {
 		resultFive.textContent = 'Ошибка была перехвачена: ' + error.message;
-		console.error('Ошибка была перехвачена:', error.message);
+		
 	}
 }
 
@@ -101,8 +101,17 @@ document.querySelector('.b-5').addEventListener('click', makeFive);
 
 function makeSix() {
 
-	let inputData = -1;
-	//Ваш код
+	const resultSix = document.getElementById('result6');
+	try {
+		let inputData = -1;
+	if (inputData < 0){
+	throw new Error("Данные не верны: значение меньше 0"); 
+	}
+		return inputData == 0 ? 1 : inputData * (inputData - 1);
+	}catch (error) {
+		resultSix.textContent = 'Ошибка была перехвачена: ' + error.message;
+		console.error('Ошибка была перехвачена:', error.message);
+	}
 }
 
 document.querySelector('.b-6').addEventListener('click', makeSix);
@@ -111,10 +120,19 @@ document.querySelector('.b-6').addEventListener('click', makeSix);
 //Допишите функцию makeSeven так, что если делитель равен нулю, бросьте исключение с сообщением "Деление на ноль недопустимо".
 
 function makeSeven() {
+	const resultSeven = document.getElementById('result7');
+	try {
 	let dividend = 10;
 	let divisor = 0;
-	//Ваш код
-	return dividend / divisor;
+	if (divisor === 0){
+		throw new Error("Деление на ноль недопустимо"); 
+		}
+		return dividend / divisor;;
+		}catch (error) {
+			resultSeven.textContent = 'Ошибка была перехвачена: ' + error.message;
+			console.error('Ошибка была перехвачена:', error.message);
+		}
+	
 }
 
 document.querySelector('.b-7').addEventListener('click', makeSeven);
