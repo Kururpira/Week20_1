@@ -220,12 +220,19 @@ document.querySelector('.b-11').addEventListener('click', makeEleven);
 //Если возраст меньше 18 лет, необходимо бросить исключение типа Error с сообщением "Доступ запрещен для лиц младше 18 лет". В противном случае, выведите сообщение "Доступ разрешен".
 
 function makeTwelve() {
-	let age = 12;
+	 const resultTwelve = document.getElementById('result12');
+	 try{
+	let age = 20;
 	if (age < 18) {
-		//Ваш код
+		throw new Error('Доступ запрещен');
 	} else {
-		//Ваш код
+		resultTwelve.textContent = 'Доступ разрешен'
 	}
+}
+catch(error){
+	console.error(error.message);
+	resultTwelve.textContent = error.message;
+}
 }
 
 document.querySelector('.b-12').addEventListener('click', makeTwelve);
