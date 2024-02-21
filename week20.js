@@ -71,7 +71,7 @@ function makeFour() {
         }
         catch (error) {
 			resultFour.textContent = 'Ошибка была перехвачена: ' + error.message;
-		console.error('Ошибка была перехвачена:', error.message);
+			console.error('Ошибка была перехвачена:', error.message);
 	}
 }
 
@@ -127,7 +127,7 @@ function makeSeven() {
 	if (divisor === 0){
 		throw new Error("Деление на ноль недопустимо"); 
 		}
-		return dividend / divisor;;
+		return dividend / divisor;
 		}catch (error) {
 			resultSeven.textContent = 'Ошибка была перехвачена: ' + error.message;
 			console.error('Ошибка была перехвачена:', error.message);
@@ -141,7 +141,7 @@ document.querySelector('.b-7').addEventListener('click', makeSeven);
 //Добавьте в блок функции makeSeven блок try/catch, создайте новую функцию makeEight
 
 function makeEight() {
-	//Ваш код
+	//Я так понимаю выше я уже выполнила условие
 }
 
 document.querySelector('.b-8').addEventListener('click', makeEight);
@@ -150,11 +150,14 @@ document.querySelector('.b-8').addEventListener('click', makeEight);
 //Добавьте в код функции makeNine блок try/catch так, чтобы вместо ошибки выводилось цифра 1 в элемент с id "result9"
 
 function makeNine() {
-	//Тут добавляете try
+	const resultNine = document.getElementById('result9');
+	try{
 	let a = 22;
 	let c = a + d;
-	//Тут catch
-	//Вывод цифры в элемент
+	}
+	catch{
+		resultNine.textContent = 1;
+	}
 }
 
 document.querySelector('.b-9').addEventListener('click', makeNine);
@@ -166,16 +169,21 @@ document.querySelector('.b-9').addEventListener('click', makeNine);
 //В блоке catch выведите сообщение об ошибке на страницу
 
 function makeTen() {
-	let email = 'example.com';
+	const resultTen= document.getElementById('.result10');
+	
+	try{
+		let email = 'example.com';
 	let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
+	resultTen.textContent = "Email-адрес корректен";
 	if (!emailPattern.test(email)) {
-		throw 'Некорректный email-адрес';
+		throw new Error( "Некорректный email-адрес");
 	}
-
-	document.getElementById('.result7').textContent = 'Email-адрес корректен';
+	}
+	catch{
+		resultTen.textContent = 'Ошибка была перехвачена:';
+		console.error('Ошибка была перехвачена:');
+	}
 }
-
 document.querySelector('.b-10').addEventListener('click', makeTen);
 
 //Задание 11
