@@ -169,19 +169,22 @@ document.querySelector('.b-9').addEventListener('click', makeNine);
 //В блоке catch выведите сообщение об ошибке на страницу
 
 function makeTen() {
-	const resultTen= document.getElementById('.result10');
+	let resultTen = document.getElementById('result10');
 	
 	try{
 		let email = 'example.com';
 	let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-	resultTen.textContent = "Email-адрес корректен";
+	
 	if (!emailPattern.test(email)) {
 		throw new Error( "Некорректный email-адрес");
 	}
+	else{
+		resultTen.textContent = "Email-адрес корректен";
 	}
-	catch{
-		resultTen.textContent = 'Ошибка была перехвачена:';
-		console.error('Ошибка была перехвачена:');
+	}
+	catch(error){
+		resultTen.textContent = 'Ошибка была перехвачена: ' + error.message;
+		console.error('Ошибка была перехвачена:', error.message);
 	}
 }
 document.querySelector('.b-10').addEventListener('click', makeTen);
@@ -190,12 +193,24 @@ document.querySelector('.b-10').addEventListener('click', makeTen);
 //Допишите проверку телефона пользователя, если длина телефона менее 10 символов бросьте исключение throw new Error с сообщением "Некорректная длина телефонного номера"
 
 function makeEleven() {
-	phoneNumber = '06629820788';
+	const resultEleven = document.getElementById('result11');
+	try{
+	let phoneNumber = '0668877999';
 	if (!/^\d+$/.test(phoneNumber)) {
 		throw new Error('Телефонный номер должен состоять только из цифр');
 	}
-	//Ваш код
+	if (phoneNumber.length < 10){
+		throw new Error ('Некорректная длина телефонного номера')
+	}
+	else{
 	console.log('Телефонный номер корректен');
+	resultEleven.textContent = 'Телефонный номер корректен';
+	}
+}
+catch(error){
+	console.error('Ошибка была перехвачена:', error.message);
+	resultEleven.textContent = 'Ошибка была перехвачена: ' + error.message;
+}
 }
 
 document.querySelector('.b-11').addEventListener('click', makeEleven);
