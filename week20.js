@@ -62,7 +62,17 @@ document.querySelector('.b-3').addEventListener('click', makeThree);
 //Cоздайте функцию makeFour, которая использует блок try/catch. Ошибка не должна выводиться на экран, а должен быть выведен результат умножения в элемент с id "result4".
 
 function makeFour() {
-	//Ваш код
+	const resultFour = document.getElementById('result4');
+
+        try {
+			let number = 5;
+			resultFour.textContent =(number * 2);
+        
+        }
+        catch (error) {
+			resultFour.textContent = 'Ошибка была перехвачена: ' + error.message;
+		console.error('Ошибка была перехвачена:', error.message);
+	}
 }
 
 document.querySelector('.b-4').addEventListener('click', makeFour);
@@ -71,10 +81,17 @@ document.querySelector('.b-4').addEventListener('click', makeFour);
 //Допишите функцю makeFive так, чтобы она использовала оператор throw для генерации исключения в случае ошибки
 
 function makeFive() {
-	let inputData = -1;
-	if (inputData < 0)
-		//Ваш код
+	const resultFive = document.getElementById('result5');
+	try {
+		let inputData = -1;
+	if (inputData < 0){
+	throw new Error("Данные не верны: значение меньше 0"); 
+	}
 		return inputData == 0 ? 1 : inputData * (inputData - 1);
+	}catch (error) {
+		resultFive.textContent = 'Ошибка была перехвачена: ' + error.message;
+		console.error('Ошибка была перехвачена:', error.message);
+	}
 }
 
 document.querySelector('.b-5').addEventListener('click', makeFive);
@@ -83,6 +100,7 @@ document.querySelector('.b-5').addEventListener('click', makeFive);
 //Создайте функцию makeSix, которая дополнит код функции makeFive так, чтобы она использовала оператор throw для генерации исключения в случае ошибки, а затем перехватывала это исключение и выводила в консоль сообщение "Ошибка перехвачена".
 
 function makeSix() {
+
 	let inputData = -1;
 	//Ваш код
 }
