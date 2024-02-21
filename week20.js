@@ -242,7 +242,7 @@ document.querySelector('.b-12').addEventListener('click', makeTwelve);
 
 function makeThirteen() {
 	let age = 10;
-	//Ваш код
+	//Тут вроде в прошлом задании уже выполнила условие
 }
 
 document.querySelector('.b-13').addEventListener('click', makeThirteen);
