@@ -279,9 +279,10 @@ document.querySelector('.b-14').addEventListener('click', makeFourteen);
 function makeFifteen(a, func) {
 	const resultFifteen = document.getElementById('result15');
 	try {
-		//Ваш код
+		func(a);
 	} catch (error) {
-		//Ваш код
+		console.error('Ошибка: ' + error.name);
+		resultFifteen.textContent = 'Ошибка была перехвачена: ' + error.name;
 	}
 }
 
@@ -293,7 +294,12 @@ document.querySelector('.b-15').addEventListener('click', makeFifteen);
 
 function makeSixteen(n, func) {
 	const resultSixteen = document.getElementById('result16');
-	//Ваш код
+	try {
+		func(n);
+	} catch (error) {
+		console.error('Ошибка: ' + error.name);
+		resultSixteen.textContent = 'Ошибка была перехвачена: ' + error.name;
+	}
 }
 
 document.querySelector('.b-16').addEventListener('click', makeSixteen);
