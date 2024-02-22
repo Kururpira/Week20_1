@@ -411,7 +411,20 @@ function fetchData() {
 }
 
 function makeTwentyOne() {
-	//Ваш код
+	const resultTwentyOne = document.getElementById('result21');
+	const resultTwentyOneFinally = document.getElementById('result21a');
+	try{
+		fetchData();
+		
+		resultTwentyOne.textContent =fetchData() ;
+		
+	}
+	catch(error){
+		resultTwentyOne.textContent = 'Ошибка';
+	}
+	finally{
+		resultTwentyOneFinally.textContent = 'finally21';
+	}
 }
 
 // добавьте слушатель события
