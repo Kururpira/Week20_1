@@ -352,14 +352,18 @@ document.querySelector('.b-18').addEventListener('click', makeEighteen);
 
 function makeNineteen() {
 	const resultNineteen = document.getElementById('result19');
-	//Блок try
+	const resultNineteenFinallly = document.getElementById('result19a');
+	try{
 	const arr = [1, 2, 3];
 	const sum = arr.reduce((acc, val) => acc + val, 0);
 	resultNineteen.textContent = sum;
-	//Блок catch (error)
+	}
+	catch (error){
 	console.error(error); //Вывод ошибки в консоль
-	//Ваш код
-	//Блок finally
+	}
+	finally{
+		resultNineteenFinallly.textContent = 'finally19';
+	}
 }
 
 document.querySelector('.b-19').addEventListener('click', makeNineteen);
