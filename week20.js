@@ -380,7 +380,20 @@ function calculateValue() {
 }
 
 function makeTwenty() {
-	//Ваш код
+	const resultTwenty = document.getElementById('result20');
+	const resultTwentyFinally = document.getElementById('result20a');
+	try{
+		calculateValue();
+		
+			resultTwenty.textContent =calculateValue() ;
+		
+	}
+	catch(error){
+		resultTwenty.textContent = 'Ошибка';
+	}
+	finally{
+		resultTwentyFinally.textContent = 'finally20';
+	}
 }
 
 // добавьте слушатель события
