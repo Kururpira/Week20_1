@@ -328,17 +328,20 @@ document.querySelector('.b-17').addEventListener('click', makeSeventeen);
 function makeEighteen() {
 	const resultEighteen = document.getElementById('result18');
 	const forWordFinally = document.getElementById('result18a');
-	//Блок try
-	//Некорректная операция деления для примера, может вызвать ошибку
+	try{
+	const result = 12 / 0;
+	resultEighteen.textContent = result;
 	if (true) {
 		throw new Error('Division by zero');
 	}
-	const result = 12 / 0;
-	resultEighteen.textContent = result;
-	//Блок catch (error)
-	console.error(error); //Вывод ошибки в консоль
-	resultEighteen.textContent = '0'; //Вывод '0' при ошибке
-	//Блок finally
+}
+	catch (error){
+	console.error(error); 
+	resultEighteen.textContent = '0';
+	}
+	finally{
+		forWordFinally.textContent = 'finnaly';
+	}
 }
 
 document.querySelector('.b-18').addEventListener('click', makeEighteen);
