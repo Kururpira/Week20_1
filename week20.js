@@ -255,13 +255,21 @@ document.querySelector('.b-13').addEventListener('click', makeThirteen);
 //Используйте блок try/catch
 
 function makeFourteen() {
-	let discount = 51;
+	const resultFourteen = document.getElementById('result14')
+	let discount = 49;
+	try{
 	if (discount < 0 || discount > 50) {
-		//Ваш код
+		throw new Error('Некорректное значение скидки');
 	}
-	console.log('Замените текст');
+	else{
+		resultFourteen.textContent = `Ваша скидка: ${discount} %`;
+	}
 }
-
+catch(error){
+	console.error(error.message);
+	resultFourteen.textContent = error.message;
+}
+}
 document.querySelector('.b-14').addEventListener('click', makeFourteen);
 
 //Задание 15
