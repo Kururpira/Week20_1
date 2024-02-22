@@ -310,7 +310,12 @@ document.querySelector('.b-16').addEventListener('click', makeSixteen);
 
 function makeSeventeen(str, func) {
 	const resultSeventeen = document.getElementById('result17');
-	//Ваш код
+	try {
+		func(str);
+	} catch (error) {
+		console.error('Ошибка: ' + error.name);
+		resultSeventeen.textContent = 'Ошибка была перехвачена: ' + error.name;
+	}
 }
 
 // добавьте слушатель события
