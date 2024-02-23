@@ -519,11 +519,15 @@ document.querySelector('.b-25').addEventListener('click', makeTwentyFive);
 
 function makeTwentySix() {
 	const resultTwentySix = document.getElementById('result26');
-	//Блок try
+	try{
 	setTimeout(() => {
 		noSuchVariable; //Попытка обратиться к несуществующей переменной
 	}, 1000);
-	//Блок catch (error)
+}
+catch (error){
+	console.error('Ошибка была перехвачена:', error.message);
+	resultTwentySix.textContent = 'Попытка обратиться к несуществующей переменной';
+}
 }
 
 document.querySelector('.b-26').addEventListener('click', makeTwentySix);
@@ -593,11 +597,13 @@ document.querySelector('.b-28').addEventListener('click', makeTwentyEight);
 const resultTwentyNine = document.getElementById('result29');
 
 function handlePromise() {
-	//Блок try
+	try{
 	Promise.reject('это точно ошибка');
-	//Блок catch (e)
+	}
+	catch (e){
 	resultTwentyNine.textContent = 'Ошибка перехвачена: ' + e;
 	console.log(e); //err
+	}
 }
 
 function makeTwentyNine() {
