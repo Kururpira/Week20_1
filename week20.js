@@ -437,13 +437,14 @@ const json = '{ некорректный JSON }';
 
 function makeTwentyTwo() {
 	const resultTwentyTwo = document.getElementById('result22');
-	//Блок try
+	try{
 	let user = JSON.parse(json); //Возникает ошибка
 	console.log(user.name); //Не сработает
-	//Блок catch (e)
+	}catch (e){
 	resultTwentyTwo.textContent = 'Извините, в данных ошибка, мы попробуем получить их ещё раз.';
 	console.log(e.name);
 	console.log(e.message);
+	}
 }
 
 document.querySelector('.b-22').addEventListener('click', makeTwentyTwo);
@@ -456,7 +457,15 @@ const jsonTwentyThree = '{ некорректный JSON }';
 
 function makeTwentyThree() {
 	const resultTwentyThree = document.getElementById('result23');
-	//Ваш код
+	try{
+		let user = JSON.parse(jsonTwentyThree);
+		console.log(user.name);
+	}
+	catch(error){
+		resultTwentyThree.textContent = 'Извините, в данных ошибка, мы попробуем получить их ещё раз.';
+		console.log(error.name);
+		console.log(error.massage);
+	}
 }
 
 // Добавьте слушатель события
@@ -468,14 +477,17 @@ document.querySelector('.b-23').addEventListener('click', makeTwentyThree);
 
 function makeTwentyFour() {
 	const resultTwentyFour = document.getElementById('result24');
-	//Блок try
+	try{
 	let divisor = 0;
 	if (divisor === 0) {
-		//Ваш код
+		throw new Error('Извините, деление на 0 невозможно')
 	}
 	let result = 24 / divisor;
 	return result;
-	//Блок catch (error)
+}catch (error){
+console.log(error);
+resultTwentyFour.textContent = error;
+}
 }
 
 document.querySelector('.b-24').addEventListener('click', makeTwentyFour);
@@ -486,13 +498,17 @@ document.querySelector('.b-24').addEventListener('click', makeTwentyFour);
 
 function makeTwentyFive() {
 	const resultTwentyFive = document.getElementById('result25');
-	//Блок try
+	try{
 	const randomValue = Math.random();
 	if (randomValue <= 0.9) {
 		throw new Error('Искусственная ошибка');
 	}
 	resultTwentyFive.textContent = 'Операция успешно выполнена';
-	//Блок catch (error)
+}
+catch (error){
+	console.log(error);
+	resultTwentyFive.textContent = error;
+}
 }
 
 document.querySelector('.b-25').addEventListener('click', makeTwentyFive);
