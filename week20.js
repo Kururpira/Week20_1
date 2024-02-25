@@ -548,28 +548,30 @@ function simulateAsyncOperation() {
 	});
 }
 
-//Добавить название функции и ключевое слово async
+async function makeTwentySeven(){
 //Подумайте, в каком месте нужно добавить await
-// resultTwentySeven.textContent = 'Ожидание...';
-// try {
-// 	const result = simulateAsyncOperation();
-// 	resultTwentySeven.textContent = 'Результат: ' + result;
-// } catch (error) {
-// 	resultTwentySeven.textContent = 'Произошла ошибка: ' + error.message;
-// 	console.error(error.name);
-// }
+resultTwentySeven.textContent = 'Ожидание...';
+try {
+const result = await simulateAsyncOperation();
+resultTwentySeven.textContent = 'Результат: ' + result;
+} 
+catch (error) {
+resultTwentySeven.textContent = 'Произошла ошибка: ' + error.message;
+console.error(error.name);
+}
 
-// document.querySelector('.b-27').addEventListener('click', makeTwentySeven);
+}
+document.querySelector('.b-27').addEventListener('click', makeTwentySeven);
 
 //Задание 28
 //Создайте функцию makeTwentyEight, которая содержит код с использованием Promise.reject и setTimeout,
 //демонстрирующий, что ошибки внутри этих операций не попадают в блок catch на том же уровне.
 
-function makeTwentyEight() {
+async function makeTwentyEight() {
 	const resultTwentyEight = document.getElementById('result28');
 	resultTwentyEight.textContent = 'Ожидание...';
 	try {
-		Promise.reject('err')
+		await Promise.reject('err')
 			.then((result) => {
 				resultTwentyEight.textContent = 'Успешное завершение: ' + result;
 			})
@@ -596,9 +598,9 @@ document.querySelector('.b-28').addEventListener('click', makeTwentyEight);
 
 const resultTwentyNine = document.getElementById('result29');
 
-function handlePromise() {
+async function handlePromise() {
 	try{
-	Promise.reject('это точно ошибка');
+	await Promise.reject('это точно ошибка');
 	}
 	catch (e){
 	resultTwentyNine.textContent = 'Ошибка перехвачена: ' + e;
