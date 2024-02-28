@@ -297,7 +297,7 @@ function makeSixteen(n, func) {
 	try {
 		func(n);
 	} catch (error) {
-		console.error('Ошибка: ' + error.name);
+		console.error('Ошибка: ' + error.massage);
 		resultSixteen.textContent = 'Ошибка была перехвачена: ' + error.name;
 	}
 }
@@ -313,7 +313,7 @@ function makeSeventeen(str, func) {
 	try {
 		func(str);
 	} catch (error) {
-		console.error('Ошибка: ' + error.name);
+		console.error('Ошибка: ' + error.massage);
 		resultSeventeen.textContent = 'Ошибка была перехвачена: ' + error.name;
 	}
 }
